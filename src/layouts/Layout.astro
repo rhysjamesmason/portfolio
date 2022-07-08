@@ -1,0 +1,63 @@
+---
+import Navbar from "../components/Navbar.astro";
+
+export interface Props {
+  title: string;
+  image: string;
+  description: string;
+  author: string;
+}
+
+const { title, image, description, author } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Primary Meta Tags -->
+  <title>{title} - Rhys James</title>
+  <meta name="title" content={`${title} - Rhys James`}>
+  <meta name="description" content={`${description}`}>
+  <meta name="author" content={`${author}`}>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.rhysjames.tk/">
+  <meta property="og:title" content={`${title} - Rhys James`}>
+  <meta property="og:description" content={`${description}`}>
+  <meta property="og:image" content={`${image}`}>
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.rhysjames.tk/">
+  <meta property="twitter:title" content={`${title} - Rhys James`}>
+  <meta property="twitter:description" content={`${description}`}>
+  <meta property="twitter:image" content={`${image}`}>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- CSS Framework -->
+  <link href="https://fonts.bunny.net/css?family=bowlby-one:400" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/dhg/Skeleton/88f03612/css/normalize.min.css">
+  <link rel="stylesheet" href="https://cdn.statically.io/gh/dhg/Skeleton/88f03612/css/skeleton.min.css">
+
+  <title>{title} | Rhys James</title>
+</head>
+
+<body>
+  <Navbar />
+  <slot />
+</body>
+
+</html>
+
+<style>
+  :root {
+    --Navbar-bg: #03071e;
+    --Navbar-shadow: #ffaa00;
+  }
+</style>
